@@ -11,5 +11,6 @@ namespace stock_prices{
   void test_analysis();  
   double average(const std::vector<double>& prices);
   double profit_on_first_upstick(const std::vector<double>& prices);
+  bool required_profit_possible(const std::vector<double>& prices, double required_profit);
 }
 
