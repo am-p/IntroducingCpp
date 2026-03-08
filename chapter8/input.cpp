@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <cassert>
+#include <fstream>
 #include <limits>
 #include <sstream>
 #include <random>
@@ -86,6 +87,16 @@ namespace stock_prices{
 
     std::ranges::generate(prices.begin(), prices.end(), next_price);
     return prices;
+  }
+
+  std::vector<double> read_from_file(const std::string& filename){
+    std::ifstream file{filename};
+    if(file) {
+      return get_prices(file, [](){});
+    }
+    else {
+      throw std::runtime_error("Failed to write to file");
+    }
   }
 
   void test_input(){

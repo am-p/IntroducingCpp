@@ -12,6 +12,7 @@ namespace stock_prices {
   void test_input();
   std::vector<double> get_prices(double price, size_t count);
   std::vector<double> get_prices(double price, size_t count, double volatility);
-  std::vector<double> get_prices(double price, size_t count, double volatility, unsigned int seed = std::random_device{}());
+  //std::vector<double> get_prices(double price, size_t count, double volatility, unsigned int seed = std::random_device{}());
+  std::vector<double> read_from_file(const std::string& filename);
 }
 
