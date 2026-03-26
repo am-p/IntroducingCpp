@@ -27,7 +27,7 @@ namespace stock_prices{
     };
     
     double next_price() override;
-    
+        
     double get_price() const override{
       return last_price;
     };

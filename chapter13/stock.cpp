@@ -1,3 +1,5 @@
+#include <type_traits>
+
 #include "stock.h"
 
 stock_prices::Stock::Stock(const std::string& stock_name, double start_price, double start_volatility):

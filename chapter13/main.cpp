@@ -1,9 +1,19 @@
 #include <iostream>
-#include <vector>
+#include <memory> 
 
-#include "stock.h"
 #include "asset.h"
+#include "stock.h"
 
-int main(){
-  stock_prices::Stock coffee{"Coffee", 4.8, 11.3};
+int main()
+{
+using namespace stock_prices;
+    auto coffee{ Stock{ "Coffee", 4.8, 0.0113 } }; 
+    Asset& asset{coffee}; 
+    std::cout << asset.get_name() << ": " << asset.next_price() << '\n'; 
+
+    std::unique_ptr<Asset> asset_pointer{
+        std::make_unique<Stock>("Coffee", 4.8, 0.0113)
+    }; 
+    std::cout << asset_pointer->get_name() << ": " 
+        << asset_pointer->next_price() << '\n'; 
 }
