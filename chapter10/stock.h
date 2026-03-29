@@ -1,4 +1,5 @@
 #pragma once
+
 #include <random>
 #include <string>
 
@@ -12,6 +13,7 @@ namespace stock_prices{
 
   public:
     Stock(const std::string& stock_name, double start_price, double start_volatility);
+    
     std::string get_name() const{// Ese const significa que no voy a modificar el objeto(y sus componentes, claro)
     return name;
   }
