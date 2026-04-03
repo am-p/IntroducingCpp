@@ -22,17 +22,19 @@ namespace stock_prices
   }
 }
 
-int main(int argc, char *argv[])
+int main()
 {
   using namespace stock_prices;
   test_stock(); 
   test_trades(); 
 
-  std::unique_ptr<Asset> asset{
-    std::make_unique<Stock>("Coffee", 4.8, 0.0113) 
-  };
-  Exchange exchange{1, std::move(asset)}; 
-  auto profit = trading_game(exchange); 
-  std::cout << "Total profit " << profit << '\n'; 
-  std::cout << "Game over\n";
+  auto coffee{ Stock{ "Coffee", 4.8, 0.0113 } }; 
+  Asset& asset{coffee}; 
+  std::cout << asset.get_name() << ": " << asset.next_price() << '\n'; 
+
+  std::unique_ptr<Asset> asset_pointer{
+    std::make_unique<Stock>("Coffee", 4.8, 0.0113)
+  }; 
+  std::cout << asset_pointer->get_name() << ": " 
+	    << asset_pointer->next_price() << '\n'; 
 }

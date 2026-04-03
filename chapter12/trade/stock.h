@@ -29,7 +29,7 @@ namespace stock_prices
       return name;
     }
 
-    double get_price() const {
+    double get_price() const {//esto lo agregué yo!
       return last_price;
     }
 

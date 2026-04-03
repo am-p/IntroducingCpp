@@ -9,5 +9,5 @@ double stock_prices::Exchange::next_price()
         throw std::invalid_argument{"No asset available"}; 
     }
     prices.push_back(asset->get_price()); 
-    return const auto price = asset->next_price(); 
+    return  asset->next_price(); 
 }
