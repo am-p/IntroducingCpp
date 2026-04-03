@@ -29,6 +29,10 @@ namespace stock_prices
       return name;
     }
 
+    double get_price() const {
+      return last_price;
+    }
+
     double next_price(); 
   };
 }
