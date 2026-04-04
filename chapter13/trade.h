@@ -42,5 +42,7 @@ namespace stock_prices
     }
   };
 
+  void test_trades();
+
   double trading_game(Exchange& exchange);
 }

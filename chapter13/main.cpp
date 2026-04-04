@@ -1,26 +1,11 @@
 #include <iostream>
 #include <memory>
-#include <type_traits>
+
 
 #include "asset.h"
 #include "stock.h"
 #include "trade.h"
 
-namespace stock_prices
-{
-  void test_stock()
-  {
-    static_assert(std::is_abstract<Asset>());
-    static_assert(std::is_polymorphic<Asset>());
-    static_assert(std::is_polymorphic<Stock>());
-  }
-
-  void test_trades()
-  {
-    static_assert(std::is_move_constructible_v<Exchange>);
-    static_assert(!std::is_copy_constructible_v<Exchange>);
-  }
-}
 
 int main(int argc, char *argv[])
 {
@@ -31,6 +16,7 @@ int main(int argc, char *argv[])
     std::unique_ptr<Asset> asset{
         std::make_unique<Stock>("Coffee", 4.8, 0.0113) 
     };
+    
     Exchange exchange{1, std::move(asset)}; 
     auto profit = trading_game(exchange); 
     std::cout << "Total profit " << profit << '\n'; 

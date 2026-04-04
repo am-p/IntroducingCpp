@@ -31,6 +31,7 @@ namespace stock_prices{
     double get_price() const override{
       return last_price;
     };
-    
   };
+
+  void test_stock();
 }
