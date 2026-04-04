@@ -5,29 +5,42 @@
 
 namespace stock_prices
 {
-    class Exchange
+  class Exchange
+  {
+    double initial_funds{100.0};
+    double funds{ initial_funds };
+    int number_of_assets{};
+    std::unique_ptr<Asset> asset{}; 
+    std::vector<double> prices{};
+
+  public:
+    Exchange(int number_of_assets, std::unique_ptr<Asset> asset) 
+      : number_of_assets(number_of_assets), asset(std::move(asset))
     {
-        double initial_funds{100.0};
-        double funds{ initial_funds };
-        int number_of_assets{};
-        std::unique_ptr<Asset> asset{}; 
-        std::vector<double> prices{};
+    }
+    explicit Exchange(int number_of_assets)
+      : Exchange(number_of_assets, nullptr)
+    {
+    }
+    double next_price();
+      
+    std::vector<double> get_prices() const
+    {
+      return prices;
+    }
 
-        public:
-        Exchange(int number_of_assets, std::unique_ptr<Asset> asset) 
-            : number_of_assets(number_of_assets), asset(std::move(asset))
-        {
-        }
-        explicit Exchange(int number_of_assets)
-            : Exchange(number_of_assets, nullptr)
-        {
-        }
-        double next_price();
-        std::vector<double> get_prices() const
-        {
-            return prices;
-        }
-    };
+    void fulfill_buy_order()
+    {
+      --number_of_assets;
+      funds += asset->get_price();
+    }
 
-    double trading_game(Exchange & exchange);
+    void fulfill_sell_order()
+    {
+      ++number_of_assets;
+      funds -= asset->get_price();
+    }
+  };
+
+  double trading_game(Exchange& exchange);
 }
