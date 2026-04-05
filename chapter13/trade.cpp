@@ -40,7 +40,7 @@ void stock_prices::test_trades()
 
 }
 
-double stock_prices::trading_game(Exchange & exchange)
+double stock_prices::trading_game(Exchange& exchange)
 {
     const double initial_funds{ 100.0 };
     double funds{ initial_funds };
@@ -56,7 +56,7 @@ double stock_prices::trading_game(Exchange & exchange)
         auto price_message = std::format("Current price: ${:.2f}", price);
         std::println("{: >{}}", price_message, status.size());
         std::println("Press (s) to sell, (b) to buy, (q) to quit");
-        std::print("or something else to continue>");
+        std::print("...or something else to continue: ");
         char choice{};
         std::cin >> choice;
 

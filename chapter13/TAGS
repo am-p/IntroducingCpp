@@ -1,0 +1,37 @@
+
+stock.cpp,140
+void stock_prices::test_stock(test_stock5,44
+stock_prices::Stock::Stock(13,255
+double stock_prices::Stock::next_price(next_price19,443
+
+stock.h,265
+  class Stock:Stock9,95
+    std::string name{name10,124
+    double last_price{last_price11,148
+    double volatility{volatility12,173
+    std::normal_distribution<double> distrib{distrib14,258
+    std::string get_name(25,613
+    double get_price(31,730
+
+trade.h,361
+  class Exchange8,83
+    double funds{funds11,137
+    int number_of_assets{number_of_assets12,172
+    std::unique_ptr<Asset> asset{asset13,200
+    std::vector<double> prices{prices14,237
+    Exchange(17,282
+    explicit Exchange(21,428
+    std::vector<double> get_prices(27,560
+    void fulfill_buy_order(32,637
+    void fulfill_sell_order(38,740
+
+main.cpp,16
+int main(10,99
+
+asset.h,26
+  class Asset{Asset6,57
+
+trade.cpp,167
+double stock_prices::Exchange::next_price(next_price10,135
+void stock_prices::test_trades(test_trades20,351
+double stock_prices::trading_game(trading_game43,900
