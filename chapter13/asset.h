@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <exception>
 
 namespace stock_prices{
   class Asset{
@@ -10,4 +11,6 @@ namespace stock_prices{
     virtual double get_price() const = 0;
     virtual double next_price() = 0;
   };
+
+  class no_more_prices : public std::exception{};
 }
