@@ -16,12 +16,10 @@ namespace stock_prices
   public:
     Exchange(int number_of_assets, std::unique_ptr<Asset> asset) 
       : number_of_assets(number_of_assets), asset(std::move(asset))
-    {
-    }
+    {}
     explicit Exchange(int number_of_assets)
       : Exchange(number_of_assets, nullptr)
-    {
-    }
+    {}
     double next_price();
       
     std::vector<double> get_prices() const
